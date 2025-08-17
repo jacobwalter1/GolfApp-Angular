@@ -1,0 +1,111 @@
+<div class="add-round-container">
+  <h2 class="title">Select Course</h2>
+  <div class="search-bar">
+    <input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm" />
+  </div>
+  <div class="course-list">
+    @if (filteredCourses().length === 0) {
+    <div class="no-courses">No courses available?</div>
+    <div class="add-course-link" (click)="showCourseForm()">Add a course</div>
+    } @for (course of filteredCourses(); track course) {
+    <div
+      class="course-item"
+      (click)="setSelectedCourse(course.id)"
+      [class.selected]="selectedCourseId === course.id"
+    >
+      <div class="course-name">
+        {{ course.name }}
+      </div>
+    </div>
+    }
+  </div>
+
+  <!-- Add Course Popup -->
+  @if (showAddCoursePopup) {
+  <div class="popup-backdrop">
+    <div class="popup-modal">
+      <h3>Add New Course</h3>
+      <input
+        #newCourseInput
+        type="text"
+        [(ngModel)]="newCourseName"
+        placeholder="Course name"
+        (keydown.enter)="saveNewCourse()"
+      />
+      <div class="popup-actions">
+        <button (click)="saveNewCourse()">Save</button>
+        <button (click)="hideCourseForm()">Cancel</button>
+      </div>
+      <div class="popup-message">{{ addCourseMessage }}</div>
+    </div>
+  </div>
+  } @if(selectedCourseId) {
+  <div class="holes">
+    <div class="hole-option" (click)="setNumberOfHoles(9)" [class.selected]="numberOfHoles === 9">
+      9
+    </div>
+    <div class="hole-option" (click)="setNumberOfHoles(18)" [class.selected]="numberOfHoles === 18">
+      18
+    </div>
+  </div>
+  } @if(numberOfHoles !== 0) {
+  <div class="starting-hole-row">
+    <div
+      class="starting-hole-option"
+      (click)="setStartingHole(1)"
+      [class.selected]="startingHole === 1"
+    >
+      Front
+    </div>
+    <div
+      class="starting-hole-option"
+      (click)="setStartingHole(10)"
+      [class.selected]="startingHole === 10"
+    >
+      Back
+    </div>
+  </div>
+  <div class="tee-list">
+    @for(knownTee of getKnownTees(); track knownTee) {
+    <div class="tee-item" (click)="setTeeColor(knownTee)" [class.selected]="teeColor === knownTee">
+      <div class="tee-name">{{ knownTee }}</div>
+    </div>
+    }
+    <div
+      class="tee-item custom"
+      (click)="showCustomTeePopup()"
+      [class.selected]="teeColor === 'custom'"
+    >
+      <div class="tee-name">Custom</div>
+    </div>
+  </div>
+  }
+  <button
+    class="start-round-btn"
+    (click)="startRound()"
+    [disabled]="!selectedCourseId || !teeColor || !numberOfHoles || !startingHole"
+  >
+    Start Round
+  </button>
+
+  <!-- Custom Tee Popup -->
+  @if(showCustomTeeNamePopup) {
+  <div class="popup-backdrop">
+    <div class="popup-modal">
+      <h3>Enter Custom Tee Name</h3>
+      <input
+        #customTeeInput
+        type="text"
+        [(ngModel)]="customTeeName"
+        placeholder="Tee name"
+        (keydown.enter)="saveCustomTeeName()"
+      />
+      <div class="popup-actions">
+        <button (click)="saveCustomTeeName()">Save</button>
+        <button (click)="hideCustomTeePopup()">Cancel</button>
+      </div>
+      <div class="popup-message">{{ customTeeMessage }}</div>
+    </div>
+  </div>
+  }
+</div>

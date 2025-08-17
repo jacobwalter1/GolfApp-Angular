@@ -1,0 +1,321 @@
+/* Start Round button styles */
+.start-round-btn {
+  background: #2e5c2a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 2rem auto 0 auto;
+  display: block;
+  transition: background 0.2s;
+}
+.start-round-btn:disabled {
+  background: #b7d7b0;
+  color: #fff;
+  cursor: not-allowed;
+}
+.start-round-btn:not(:disabled):hover {
+  background: #3e7c3a;
+}
+/* Starting hole selector styles */
+.starting-hole-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.starting-hole-option {
+  background: #eaf6e6;
+  color: #2e5c2a;
+  border-radius: 10px;
+  width: 100px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #b7d7b0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 1px 4px rgba(46, 92, 42, 0.04);
+}
+.starting-hole-option.selected {
+  background: #184d1a;
+  color: #fff;
+  border: 2px solid #184d1a;
+}
+.tee-item.custom {
+  background: #fffbe6;
+  border: 2px dashed #bfa700;
+  color: #bfa700;
+  font-style: italic;
+}
+.tee-item.custom.selected {
+  background: #fff3b0;
+  color: #7a5c00;
+  border: 2px solid #bfa700;
+}
+/* Tees dropdown-like list styles */
+.tee-list {
+  margin-bottom: 1.5rem;
+}
+.tee-item {
+  background: #eaf6e6;
+  border-radius: 7px;
+  margin-bottom: 0.7rem;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46, 92, 42, 0.04);
+}
+.tee-item:hover {
+  background: #d2ebc7;
+  box-shadow: 0 2px 8px rgba(46, 92, 42, 0.1);
+}
+.tee-item.selected {
+  background: #204d22;
+  color: #fff;
+}
+.tee-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+/* Tees selection styles */
+.tees {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+  flex-wrap: wrap;
+}
+.tee-option {
+  background: #eaf6e6;
+  color: #2e5c2a;
+  border-radius: 20px;
+  min-width: 64px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #b7d7b0;
+  text-align: center;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46, 92, 42, 0.04);
+  margin-bottom: 0.5rem;
+}
+.tee-option.selected {
+  background: #184d1a;
+  color: #fff;
+  border: 2px solid #184d1a;
+  box-shadow: 0 2px 8px rgba(24, 77, 26, 0.12);
+}
+/* Holes selection styles */
+.holes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+.hole-option {
+  background: #eaf6e6;
+  color: #2e5c2a;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #b7d7b0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 1px 4px rgba(46, 92, 42, 0.04);
+}
+.hole-option.selected {
+  background: #184d1a;
+  color: #fff;
+  border: 2px solid #184d1a;
+}
+/* add-round.component.css - Modern, clean, golf-inspired theme */
+
+.add-round-container {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #f8faf7;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(34, 49, 63, 0.1);
+  padding: 2.5rem 2rem 2rem 2rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  color: #2e5c2a;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.search-bar input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #b7d7b0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+.search-bar input:focus {
+  border: 1.5px solid #2e5c2a;
+  outline: none;
+}
+
+.course-list {
+  margin-bottom: 1.5rem;
+}
+.course-item {
+  background: #eaf6e6;
+
+  border-radius: 7px;
+  margin-bottom: 0.7rem;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46, 92, 42, 0.04);
+}
+.course-item:hover {
+  background: #d2ebc7;
+  box-shadow: 0 2px 8px rgba(46, 92, 42, 0.1);
+}
+.course-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.course-item.selected {
+  background: #204d22;
+  color: #fff;
+}
+
+.no-courses {
+  color: #b23c17;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.add-course-link {
+  color: #fff;
+  background: #2e5c2a;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  transition: background 0.2s;
+}
+.add-course-link:hover {
+  background: #3e7c3a;
+}
+
+/* Popup Styles */
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 49, 63, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.popup-modal {
+  background: #fff;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(34, 49, 63, 0.18);
+  min-width: 320px;
+  max-width: 90vw;
+  text-align: center;
+}
+.popup-modal h3 {
+  color: #2e5c2a;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+}
+.popup-modal input[type='text'] {
+  width: 90%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #b7d7b0;
+  border-radius: 7px;
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
+  background: #f8faf7;
+  transition: border 0.2s;
+}
+.popup-modal input[type='text']:focus {
+  border: 1.5px solid #2e5c2a;
+  outline: none;
+}
+.popup-actions {
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.popup-actions button {
+  background: #2e5c2a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.popup-actions button:hover {
+  background: #3e7c3a;
+}
+.popup-message {
+  color: #b23c17;
+  margin-top: 0.7rem;
+  min-height: 1.2em;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .add-round-container {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .popup-modal {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    min-width: 0;
+  }
+}
