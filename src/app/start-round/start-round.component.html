@@ -1,0 +1,86 @@
+<div class="start-round-container">
+  @if(getHoleDetails()) {
+  <div class="course-details">
+    <div class="name">{{ courseId }}</div>
+    <div class="hole-name">{{ currentHole }}</div>
+    <div class="hole-details">
+      <div class="hole-distance">Distance: {{ getHoleDetails()?.[0] }} yards</div>
+      <div class="hole-par">Par: {{ getHoleDetails()?.[1] }}</div>
+    </div>
+  </div>
+  <div class="hole-score">
+    <div class="hole-score-entry">
+      <div class="score-picker">
+        <div
+          *ngFor="let n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+          class="score-item"
+          [class.selected]="n === selectedScore"
+          #scoreItem
+          (click)="selectScore(n, scoreItem)"
+        >
+          {{ n }}
+        </div>
+      </div>
+    </div>
+  </div>
+  @if(getHoleDetails()?.[1] > 3) {
+  <div class="drive">
+    <div class="drive-label">Green Light</div>
+    <div class="drive-options-row">
+      <div
+        class="drive-option"
+        [class.selected]="driveOption === 'Yes'"
+        (click)="selectDriveOption('Yes')"
+      >
+        Yes
+      </div>
+      <div
+        class="drive-option"
+        [class.selected]="driveOption === 'No'"
+        (click)="selectDriveOption('No')"
+      >
+        No
+      </div>
+    </div>
+  </div>
+  }
+  <div class="green-in-reg">
+    <div class="green-in-reg-label">Green in Regulation</div>
+    <div class="green-in-reg-options-row">
+      <div
+        class="green-in-reg-option"
+        [class.selected]="greenInRegulation === 'Yes'"
+        (click)="selectGreenInRegulation('Yes')"
+      >
+        Yes
+      </div>
+      <div
+        class="green-in-reg-option"
+        [class.selected]="greenInRegulation === 'No'"
+        (click)="selectGreenInRegulation('No')"
+      >
+        No
+      </div>
+    </div>
+  </div>
+  } @else {
+  <div class="hole-details-entry">
+    <div class="course-details">
+      <div class="name">{{ courseId }}</div>
+      <div class="hole-name">Hole {{ currentHole }}</div>
+    </div>
+    <label>Distance:</label>
+    <input type="number" [(ngModel)]="distanceInput" />
+
+    <label>Par:</label>
+    <input type="number" [(ngModel)]="parInput" />
+
+    <button (click)="setHoleDetails(distanceInput, parInput)">Save Hole Details</button>
+  </div>
+  }
+
+  <div class="hole-selector">
+    <div class="hole-option" (click)="changeHole(-1)">Previous Hole</div>
+    <div class="hole-option" (click)="changeHole(1)">Next Hole</div>
+  </div>
+</div>

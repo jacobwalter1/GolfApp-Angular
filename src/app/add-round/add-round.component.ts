@@ -8,7 +8,7 @@ import {
   AfterViewChecked,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { addDoc, setDoc, doc } from '@angular/fire/firestore';
+import { setDoc, doc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { arrayUnion, updateDoc } from 'firebase/firestore';
@@ -121,12 +121,8 @@ export class AddRoundComponent implements AfterViewChecked {
       this.addCourseMessage = 'Course name is required.';
       return;
     }
-    const sanitizedId = this.newCourseName
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9\-]+/g, '-');
     try {
-      await setDoc(doc(this.firestore, 'courses', sanitizedId), {
+      await setDoc(doc(this.firestore, 'courses', this.newCourseName), {
         name: this.newCourseName.trim(),
       });
       this.addCourseMessage = 'Course added!';
